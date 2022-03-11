@@ -1,0 +1,28 @@
+create database Clientpanel
+use Clientpanel
+
+create table Tbl_Users
+(
+id int primary key identity,
+fname varchar(50),
+lname varchar(50),
+email varchar(50),
+password varchar(50),
+gender varchar(20),
+profile_image varchar(max),
+isactive bit,
+isverified bit,
+created_on datetime,
+updated_on datetime
+);
+
+create table VerifyAccounts
+(
+id int primary key identity,
+otp varchar(20),
+userid int foreign key references Tbl_users(id),
+send_time datetime
+);
+
+select * from VerifyAccounts
+select * from Tbl_Users
